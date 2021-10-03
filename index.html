@@ -5,14 +5,65 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nextflix: Your Next Favorite Movie</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/css/eric-meyer-reset.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
   
-  <h1>Hello, Group 6!</h1>
+  <header class="container-fliud">
+    <nav class="navbar navbar-dark bg-primary justify-content-center">
+      <h1>Nextflix</h1>
+      <a class="navbar justify-content-end" href="./favorites.html">See your favorites</a>
+    </nav>
+  </header>
 
-  <p>Dillon testing... Added CSS files.</p>
+  <main>
+
+    <div class="container-fluid justify-content-center row col-12">
+      <div class="justify-content-center col-8 form-group">
+        <input id="input-text" type="text" class="form-control" placeholder="Search to find some movies 🍿">
+      </div>
+      <div class="justify-content-end col-4">
+        <button id="search-button">Search</button>
+      </div>
+    </div>
+
+
+    <div class="upcoming-movies">
+      <div class="card-header text-center">
+        New & Upcoming Movies
+      </div>
+
+      <div class="container-fluid justify-content-lg-between row col-12">
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+        <div class="card" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+          <div class="card-body">
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
 
 
   <script src="./assets/js/script.js"></script>
