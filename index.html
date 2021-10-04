@@ -10,58 +10,85 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  
-  <header class="container-fliud">
-    <nav class="navbar navbar-dark bg-primary justify-content-center">
-      <h1>Nextflix</h1>
-      <a class="navbar justify-content-end" href="./favorites.html">See your favorites</a>
+  <!-- title needs to be over to the left a little, link to favs needs to be bigger and moved a little too -->
+  <header>
+    <nav class="navbar justify-content-center py-2 py-lg-4">
+      <h1 class="navbar display-1" href="#">Nextflix</h1>
+      <h2 class="navbar justify-content-end"><a href="./favorites.html">See your favorites</a></h2>
     </nav>
   </header>
 
-  <main>
+  <main class="container-fluid">
 
-    <div class="container-fluid justify-content-center row col-12">
-      <div class="justify-content-center col-8 form-group">
-        <input id="input-text" type="text" class="form-control" placeholder="Search to find some movies 🍿">
-      </div>
-      <div class="justify-content-end col-4">
-        <button id="search-button">Search</button>
-      </div>
-    </div>
-
-
-    <div class="upcoming-movies">
-      <div class="card-header text-center">
-        New & Upcoming Movies
+      <!-- button needs to be on the side, next to the seatch bar -->
+      <div class="mt-4 mb-4 mx-auto col-3">
+            <input id="input-text" type="text" class="form-control" placeholder="Search to find some movies 🍿">
+            <a href="#" class="btn btn-primary">Search</a>
       </div>
 
-      <div class="container-fluid justify-content-lg-between row col-12">
-        <div class="card" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+      <div class="resultsDiv justify-content-between row col-12 mx-auto border-primary">
+
+        <div class="card-header text-center col-12">
+          <h2>New & Upcoming Movies</h2>
+        </div>
+        <!-- change color and size of border -->
+        <div class="card mt-4 mb-4" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+            alt="Fight Club movie poster used as a placeholder">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text release-year">2017</p>
+            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary">Save movie</a>
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+
+        <div class="card mt-4 mb-4" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+            alt="Fight Club movie poster used as a placeholder">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text release-year">2017</p>
+            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary">Save movie</a>
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+
+        <div class="card mt-4 mb-4" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+            alt="Fight Club movie poster used as a placeholder">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text release-year">2017</p>
+            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary">Save movie</a>
+            </div>
           </div>
         </div>
-        <div class="card" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
+
+        <div class="card mt-4 mb-4" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+            alt="Fight Club movie poster used as a placeholder">
           <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text release-year">2017</p>
+            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary">Save movie</a>
+            </div>
           </div>
         </div>
+
       </div>
-    </div>
 
   </main>
 
