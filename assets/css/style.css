@@ -24,3 +24,11 @@ nav a {
   background-color:wheat;
   border: solid 5px black;
 }
+
+.movie-id {
+  display: none;
+}
+
+#footer-text {
+  color: whitesmoke;
+}
