@@ -1,6 +1,38 @@
+header {
+  font-family: sans-serif;
+}
+
+
+h1 {
+  font-size: xxx-large;
+  text-align: right;
+  padding-left: 10%;
+}
+
 nav {
   background-image: linear-gradient(160deg, #e60c0e 0%, #0f1010 100%);;
   font-size: xx-large;
   color: whitesmoke;
   font-weight: bold;
+}
+
+nav a {
+  font-size: small;
+  color: whitesmoke;
+  font-weight: bold;
+  text-decoration: none;
+  padding-right: 10%;
+}
+
+.favorites {
+  background-color: gainsboro
+  border: solid 5px black;
+  padding-left: 25px;
+  font-family: sans-serif;
+}
+
+.card-header {
+  font-size: xx-large;
+  text-align: center;
+  font-weight: bolder;
 }
