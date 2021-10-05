@@ -21,43 +21,50 @@
 //Selectors
 
 //Variables
-var favoriteList;
-
-var requestURL =
-  "https://api.themoviedb.org/3/search/movie?api_key=76e9c110b6137a307950d97ef6abdeff&query=" +
-  currentMovieTitle;
-
-var currentMovieTitle = "Your name";
+var favoriteList = localStorage.getItem("favoriteList");
 
 var apiKey = "76e9c110b6137a307950d97ef6abdeff";
 
+var newFavoriteId2; //gotta update this
+
+var requestURL;
+
+/*
 var template = `
 <div class="card" style="width: 18rem;">
 	<img src="https:${data.results[i].poster_path}" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
 	<div class="card-body">
- 		<h5 class="card-title">Card title</h5>
-  		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+ 		<h5 class="card-title">${data.results[i].title}</h5>
+  		<p class="card-text">${data.results[i].overview}</p>
   		<a href="#" class="btn btn-primary">Save movie</a>
 	</div>
 </div> 
 `;
+*/
+
+//	Checking to see if I am getting favoriteList back from local storage
 
 //	Function
+
 function start() {
-  if (localStorage.getItem("favoriteList" !== null)) {
-    favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
+  if (favoriteList !== null && favoriteList.length > 0) {
+	console.log(favoriteList);
+	console.log(favoriteList.length);
+	//defining the id
+	newFavoriteId2 = favoriteList[1];
+
+	requestURL = "https://api.themoviedb.org/3/movie/" + newFavoriteId2 + "?api_key=" + apiKey;
+
+	console.log(requestURL);
 
     // loop through the array of favoriteList
-    $(favoriteList).each(function () {
-		var requestURL =
-    	"https://api.themoviedb.org/3/search/movie?api_key=76e9c110b6137a307950d97ef6abdeff&query=" +
-    	currentMovieTitle;
 
+	//$(favoriteList).each(function () {
   	fetch(requestURL)
 		.then(function (response) {
 			if (response.ok) {
 				response.json().then(function (data) {
-				console.log(data);
+					console.log(data);
 				// can we call a function to generate cards here 
 				// Add in other commands to do with our data
 				});
@@ -65,14 +72,15 @@ function start() {
 			} else {
 				alert("Error: " + response.statusText);
 			}
-			})
-			.catch(function (error) {
+		})
+		.catch(function (error) {
 			alert("Unable to connect to Nextflix");
 		});
-	});
+	//});
   }
 }
 
+/*
 //event listener
 $("target").click(function () {
   //stringify what we are removing
@@ -82,4 +90,7 @@ $("target").click(function () {
   //apply hidden class to the card
   $("target").addClass("hidden");
 });
+*/
+
 //  call start function here when you are done.
+start();
