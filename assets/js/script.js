@@ -136,7 +136,7 @@ searchBtn.click(function(event) {
 // Event listener on each card or on card div for click to add to favorites
 resultsDiv.click(function(event){
     // TODO: make sure this event target works and figure out if it need to be ID or title
-    newFavoriteId = event.target;
+    newFavoriteID = event.target;
     console.log($(event.target).closest(".text-center").siblings(".movie-id")[0].textContent);
     // saveFavorite(newFavoriteID);
-})
+})}
