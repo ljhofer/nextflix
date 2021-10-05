@@ -11,29 +11,88 @@
 </head>
 <body>
 
-  <header class="container-fliud">
-    <nav class="navbar navbar-dark bg-primary">
-      <h1>Nextflix</h1>
-      <a class="homelink" href="./index.html">Search for new favorites!</a>
+  <header>
+    <nav class="navbar justify-content-center py-2 py-lg-4">
+      <h1 class="navbar display-1" href="#">Nextflix</h1>
+      <h2 class="navbar justify-content-end"><a href="./index.html">Search for new favorites!</a></h2>
     </nav>
   </header>
 
 
-  <main>
-    <div class="favorites">
-      <div class="card-header">
-        Your Favorites
-      </div>
+  <main class="container-fluid">
+    <div class="justify-content-center row mt-5 mb-5 mx-auto">
+       </div>
+    
+       <div class="favoritesDiv justify-content-between row col-12 mx-auto border-primary">
 
-      <div class="container-fluid justify-content-lg-between row col-12">
-        <div class="card" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top" alt="Fight Club movie poster used as a placeholder">
-          <div class="card-body">
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="text-center col-12">
+          <p class="lead display-4">Your Favorites</p>
+        </div>
+
+
+      <div class="card mt-4 mb-4" style="width: 18rem;">
+        <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+          alt="Fight Club movie poster used as a placeholder" />
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text release-year">2017</p>
+          <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+            content.</p>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
           </div>
         </div>
       </div>
-    </div>
+
+        <div class="card mt-4 mb-4" style="width: 18rem;">
+          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+            alt="Fight Club movie poster used as a placeholder" />
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text release-year">2017</p>
+            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <div class="text-center">
+              <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
+            </div>
+          </div>
+        </div>
+
+          <div class="card mt-4 mb-4" style="width: 18rem;">
+            <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+              alt="Fight Club movie poster used as a placeholder" />
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text release-year">2017</p>
+              <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+                content.</p>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
+              </div>
+            </div>
+          </div>
+
+            <div class="card mt-4 mb-4" style="width: 18rem;">
+              <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
+                alt="Fight Club movie poster used as a placeholder" />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text release-year">2017</p>
+                <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
+                  content.</p>
+                <div class="text-center">
+                  <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+      
+            <div id="footer-text" class="text-center col-12 mt-5 mb-5">
+              <h4>Powered by TMDB. LOGO-HERE.</h4>
+            </div>
+          
+   </main>
     
         
 
@@ -41,8 +100,8 @@
 
 
 
-    </div>
-  </main>
+    
+  
   <script src="./assets/js/script2.js"></script>
 </body>
 </html>

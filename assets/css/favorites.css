@@ -1,7 +1,7 @@
-header {
-  font-family: sans-serif;
-}
 
+body {
+  background-color: black;
+}
 
 h1 {
   font-size: xxx-large;
@@ -21,14 +21,16 @@ nav a {
   color: whitesmoke;
   font-weight: bold;
   text-decoration: none;
-  padding-right: 10%;
+}
+
+.favoritesDiv {
+  background-color:wheat;
+  border: solid 5px black;
 }
 
 .favorites {
-  background-color: gainsboro
   border: solid 5px black;
   padding-left: 25px;
-  font-family: sans-serif;
 }
 
 .card-header {
