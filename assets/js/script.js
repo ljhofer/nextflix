@@ -1,5 +1,5 @@
 // Variablees for search area
-var searchBtn = $("#");
+var searchBtn = $("#search-button");
 var searchInputField = $("#input-text")[0];
 
 // Variables for results/popular movies area
@@ -7,6 +7,8 @@ resultsDiv = $(".resultsDiv");
 
 //Global variables
 var favoriteList = [];
+var currentSearch = "";
+var newFavoriteID = "";
 
 
 
@@ -20,8 +22,8 @@ function startPage() {
             if (response.ok) {
                  response.json().then(function(data) {
                     console.log(data);  
-                    // populatePopular(data);        
-            // Add in other commands to do with our data
+                    populatePopular(data);        
+            // TODO: Add in other commands to do with our data
             
             })
       // Alerts user if there is an error or if their input is invalid    
@@ -34,47 +36,90 @@ function startPage() {
         })
 }
 
+
+// Calls the API to display the main page cards with current popular movies
 function populatePopular(data) {
-    var cardCounter = 1;
+    var cardCounter = 0;
 
-    var iconCode = data.results[i].poster_path;
-    var iconURL = "https://image.tmdb.org/t/p/original/" + iconCode + ".png";
+    // TODO - Comment this section
+    $(".card").each(function() {
 
+        var posterPath = data.results[cardCounter].poster_path;
+        var iconURL = "https://image.tmdb.org/t/p/original/" + posterPath;
 
-    // Make sure these paths are correct
-    resultsDiv.each(function() {
         $(this).children(".card-img-top").attr("src", iconURL);
-        $(this).children().children(".card-title").text();     
-        $(this).children().children(".release-year").text();
+        $(this).children().children(".card-title").text(data.results[cardCounter].title);     
+        $(this).children().children(".movie-desc").text(data.results[cardCounter].overview);
+        $(this).children().children(".release-year").text(data.results[cardCounter].release_date);
+        $(this).children().children(".movie-id").text(data.results[cardCounter].id);
 
-
-
-
-    // cardCounter ++ 
+        cardCounter++;
     })
 
+// Calls the API to fetch data based on user search 
+    // TODO: Add function to repopulate cards with API results
+function getMovieAPI(currentSearch) {
 
+    var apiKey = "76e9c110b6137a307950d97ef6abdeff"; 
+    var requestURL = "https://api.themoviedb.org/3/search/movie?api_key=76e9c110b6137a307950d97ef6abdeff&query=" + currentSearch;
+    
+    fetch(requestURL)
+        .then(function(response){
+            if (response.ok) {
+                response.json().then(function(data) {     
+                    populateCards(data);     
+            // TODO: Add in other commands to do with our data
 
+        })
+      // Alerts user if there is an error or if their input is invalid    
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function(error){
+            alert("Unable to connect to Nextflix");
+        })
 }
 
+function populateCards(data) {
+    var cardCounter = 0;
 
+    // TODO - Comment this section
+    $(".card").each(function() {
 
-	
-// function getAPI
+        var posterPath = data.results[cardCounter].poster_path;
+        var iconURL = "https://image.tmdb.org/t/p/original/" + posterPath;
 
-	//(code is in practice js file)//copy error text from homework
-	// Call populateCards function pass data
+        $(this).children(".card-img-top").attr("src", iconURL);
+        $(this).children().children(".card-title").text(data.results[cardCounter].title);     
+        $(this).children().children(".movie-desc").text(data.results[cardCounter].overview);
+        $(this).children().children(".release-year").text(data.results[cardCounter].release_date);
+        $(this).children().children(".movie-id").text(data.results[cardCounter].id);
 
+        cardCounter++;
+    })
+}
 
-// function populateCards
-	// Create individual variables for data
-	// Iterate over 4 existing cards to populate with fetch results
-		// Title, year, overview
+// Checks if new favorite movie id is already in local storage and if not pushes it there	
+function saveFavorite() {
+        
+    // Checks if current id number is in local storage
+         // If no -- function for pushing to local storage
+        // TODO: check variable names against real file
+        
+    if (localStorage.getItem("favoriteList") !== null && favoriteList.length > 0) {
+            favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
+    }
+        
+    if (!favoriteList.includes(newFavoriteID)) {
+    // Adds movie to local storage array
+        favoriteList.push(newFavoriteID);
+        localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
+                
+    // If yes -- change the text on this button to Already in favorites
+    }    
+}
 
-// function saveFavorites
-	// Check for existing favorites from local storage
-		// Set variable === JSON parse local storage
-		// Stringify local storage
 
 
 // Calls start function
@@ -84,22 +129,14 @@ startPage();
 searchBtn.click(function(event) {
     event.preventDefault();
     currentSearch = searchInputField.value;
-    getAPI(currentSearch);
+    getMovieAPI(currentSearch);
 })
 
 
 // Event listener on each card or on card div for click to add to favorites
 resultsDiv.click(function(event){
-    // TODO: make sure this event target works
-    var newFavorite = event.target
-    
-    if (localStorage.getItem("favoriteList") !== null) {
-        favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
-    }
-
-    if (!favoriteList.includes(newFavorite)) {
-         // Adds movie to favorites
-         favoriteList.push(newFavorite);
-         localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
-     }
+    // TODO: make sure this event target works and figure out if it need to be ID or title
+    newFavoriteId = event.target;
+    console.log($(event.target).closest(".text-center").siblings(".movie-id")[0].textContent);
+    // saveFavorite(newFavoriteID);
 })
