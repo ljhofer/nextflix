@@ -1,13 +1,12 @@
 // Variablees for search area
 var searchBtn = $("#");
-var searchInputField = $("#")[0];
+var searchInputField = $("#input-text")[0];
 
 // Variables for results/popular movies area
-resultsDiv = $("");
+resultsDiv = $(".resultsDiv");
 
 //Global variables
 var favoriteList = [];
-
 
 
 
@@ -21,7 +20,7 @@ function startPage() {
             if (response.ok) {
                  response.json().then(function(data) {
                     console.log(data);  
-                    populatePopular(data);        
+                    // populatePopular(data);        
             // Add in other commands to do with our data
             
             })
