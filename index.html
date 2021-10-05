@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  <!-- title needs to be over to the left a little, link to favs needs to be bigger and moved a little too -->
+  <!-- style: title needs to be over to the left a little, link to favs needs to be bigger and moved a little too -->
   <header>
     <nav class="navbar justify-content-center py-2 py-lg-4">
       <h1 class="navbar display-1" href="#">Nextflix</h1>
@@ -19,11 +19,14 @@
   </header>
 
   <main class="container-fluid">
-
-      <!-- button needs to be on the side, next to the seatch bar -->
-      <div class="mt-4 mb-4 mx-auto col-3">
-            <input id="input-text" type="text" class="form-control" placeholder="Search to find some movies 🍿">
-            <a href="#" class="btn btn-primary" id="search-button">Search</a>
+      <!-- style: change size of search box and seatch button -->
+      <div class="justify-content-center row mt-5 mb-5 mx-auto">
+        <div>
+          <input id="input-text" type="text" class="form-control" placeholder="Search movies 🍿" />
+        </div>
+        <div>
+          <a href="#" class="btn btn-primary" id="search-button">Search</a>
+        </div>
       </div>
 
       <div class="resultsDiv justify-content-between row col-12 mx-auto border-primary">
@@ -31,10 +34,10 @@
         <div class="text-center col-12">
           <p class="lead display-4">New & Upcoming Movies</p>
         </div>
-        <!-- change color and size of border -->
+        <!-- style: change color and size of border -->
         <div class="card mt-4 mb-4" style="width: 18rem;">
           <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-            alt="Fight Club movie poster used as a placeholder">
+            alt="Fight Club movie poster used as a placeholder" />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text release-year">2017</p>
@@ -49,7 +52,7 @@
 
         <div class="card mt-4 mb-4" style="width: 18rem;">
           <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-            alt="Fight Club movie poster used as a placeholder">
+            alt="Fight Club movie poster used as a placeholder" />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text release-year">2017</p>
@@ -63,7 +66,7 @@
 
         <div class="card mt-4 mb-4" style="width: 18rem;">
           <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-            alt="Fight Club movie poster used as a placeholder">
+            alt="Fight Club movie poster used as a placeholder" />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text release-year">2017</p>
@@ -77,7 +80,7 @@
 
         <div class="card mt-4 mb-4" style="width: 18rem;">
           <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-            alt="Fight Club movie poster used as a placeholder">
+            alt="Fight Club movie poster used as a placeholder" />
           <div class="card-body">
             <h5 class="card-title">Card title</h5>
             <p class="card-text release-year">2017</p>
@@ -99,6 +102,6 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
-  <script src="./assets/js/script2.js"></script>
+  <!-- <script src="./assets/js/script2.js"></script> -->
 </body>
 </html>
