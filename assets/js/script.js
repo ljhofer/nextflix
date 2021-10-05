@@ -11,9 +11,54 @@ var favoriteList = [];
 
 
 
-// Start function
-	// Pull popular query from API
-	// Push content to cards
+// Pulls a query of current popular movies from API
+function startPage() {
+    var apiKey = "76e9c110b6137a307950d97ef6abdeff"; 
+    var requestURL = "https://api.themoviedb.org/3/movie/popular?api_key=" + apiKey + "&language=en-US&page=1";
+
+    fetch(requestURL)
+        .then(function(response){
+            if (response.ok) {
+                 response.json().then(function(data) {
+                    console.log(data);  
+                    populatePopular(data);        
+            // Add in other commands to do with our data
+            
+            })
+      // Alerts user if there is an error or if their input is invalid    
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function(error){
+            alert("Unable to connect to Nextflix");
+        })
+}
+
+function populatePopular(data) {
+    var cardCounter = 1;
+
+    var iconCode = data.results[i].poster_path;
+    var iconURL = "https://image.tmdb.org/t/p/original/" + iconCode + ".png";
+
+
+    // Make sure these paths are correct
+    resultsDiv.each(function() {
+        $(this).children(".card-img-top").attr("src", iconURL);
+        $(this).children().children(".card-title").text();     
+        $(this).children().children(".release-year").text();
+
+
+
+
+    // cardCounter ++ 
+    })
+
+
+
+}
+
+
 
 	
 // function getAPI
@@ -43,23 +88,19 @@ searchBtn.click(function(event) {
     getAPI(currentSearch);
 })
 
-// Event listener on each card or on card div for click to add to favorites
-	// Check to see if title exists in local storage
-		// If no, save movie title to JSON object of favorite movies 
-		// If yes, link to favorites page
 
+// Event listener on each card or on card div for click to add to favorites
 resultsDiv.click(function(event){
-    // TODO: make this this event target works
+    // TODO: make sure this event target works
     var newFavorite = event.target
     
     if (localStorage.getItem("favoriteList") !== null) {
         favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
     }
 
-    if (!previousCities.includes(currentSearch)) {
+    if (!favoriteList.includes(newFavorite)) {
          // Adds movie to favorites
-         previousCities.push(newFavorite);
+         favoriteList.push(newFavorite);
          localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
      }
-
 })
