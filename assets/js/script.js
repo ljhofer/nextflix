@@ -1,6 +1,7 @@
 // Variablees for search area
 var searchBtn = $("#search-button");
 var searchInputField = $("#input-text")[0];
+var errorText = $(".error-text");
 
 // Variables for results/popular movies area
 resultsDiv = $(".resultsDiv");
@@ -62,19 +63,27 @@ function getMovieAPI(currentSearch) {
     var apiKey = "76e9c110b6137a307950d97ef6abdeff"; 
     var requestURL = "https://api.themoviedb.org/3/search/movie?api_key=76e9c110b6137a307950d97ef6abdeff&query=" + currentSearch;
     
+    errorText.hide();
+
     fetch(requestURL)
         .then(function(response){
             if (response.ok) {
-                response.json().then(function(data) {     
-                    populateCards(data);    
+                response.json().then(function(data) {   
+                    
+                    if( !data.results.length ){
+                        errorText.text("There no records matching your search. Please try again.").show();
+                    } else {
+                        console.log(data);
+                        populateCards(data);
+                    }        
         })
       // Alerts user if there is an error or if their input is invalid    
             } else {
-                alert('Error: ' + response.statusText);
+               errorText.text("There was an error with your search. Please try again.").show();
             }
         })
         .catch(function(error){
-            alert("Unable to connect to Nextflix");
+            errorText.text("There was an error with your search. Please try again.").show();
         })
 }
 
