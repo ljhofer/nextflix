@@ -15,8 +15,8 @@
 //	X	Have one single source of truth/string for all cards
 
 //	Selector
-var favoriteDiv = $(".favoritesDiv");
-console.log(favoriteDiv);
+var favoriteDiv = $(".container-fluid");
+//	This is broken 10/5/2021
 
 //Variables
 //	Getting favoriteList array from local storage
@@ -92,7 +92,7 @@ function start() {
 								`;
 								console.log(template);
 								//	Append template into favorites.html inside favoritesDiv
-								$(".favoritesDiv").append();
+								favoriteDiv.insertAdjacentHTML("beforeend", template);
 							//	Add in other commands to do with our data
 						});
 					//	Alerts user if there is an error or if their input is invalid
