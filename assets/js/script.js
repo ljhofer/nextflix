@@ -7,7 +7,7 @@ var errorText = $(".error-text");
 resultsDiv = $(".resultsDiv");
 
 //Global variables
-var favoriteList = [];
+var favoriteList = JSON.parse(localStorage.getItem("favoriteList")) || [];
 var currentSearch = "";
 var newFavoriteID = "";
 
@@ -35,7 +35,7 @@ function startPage() {
 }
 
 
-// Calls the API to display the main page cards with current popular movies
+// Uses the data from the API to display the main page cards with current popular movies
 function populatePopular(data) {
     var cardCounter = 0;
 
@@ -70,9 +70,8 @@ function getMovieAPI(currentSearch) {
                 response.json().then(function(data) {   
                     
                     if( !data.results.length ){
-                        errorText.text("There no records matching your search. Please try again.").show();
+                        errorText.text("There were no records matching your search. Please try again.").show();
                     } else {
-                        console.log(data);
                         populateCards(data);
                     }        
         })
@@ -92,6 +91,8 @@ function populateCards(data) {
     
     $(".card").each(function() {
 
+        if (cardCounter < data.results.length) {
+        
         var posterPath = data.results[cardCounter].poster_path;
         var iconURL = "https://image.tmdb.org/t/p/original/" + posterPath;
 
@@ -100,8 +101,12 @@ function populateCards(data) {
         $(this).children().children(".movie-desc").text(data.results[cardCounter].overview);
         $(this).children().children(".release-year").text(data.results[cardCounter].release_date);
         $(this).children().children(".movie-id").text(data.results[cardCounter].id);
-
+        
         cardCounter++;
+           
+        } else {
+            return;
+        } 
     })
 }
 
@@ -115,8 +120,6 @@ function saveFavorite(newFavoriteID) {
             // Adds movie to local storage array
                 favoriteList.push(newFavoriteID);
                 localStorage.setItem("favoriteList", JSON.stringify(favoriteList));
-                        
-            // If yes -- change the text on this button to Already in favorites
             }    
     } else {
         favoriteList.push(newFavoriteID);
@@ -140,6 +143,21 @@ searchBtn.click(function(event) {
     $(".favoriteButton").each(function(){
         $(this).text("Save movie");
     })
+})
+
+// Event listener for pressing enter rather than on the search button
+$("#input-text").on("keypress", function(event) {
+
+    if (event.key === "Enter"){
+        event.preventDefault();
+        currentSearch = searchInputField.value;
+        getMovieAPI(currentSearch);
+        
+        // Sets buttons to default text
+        $(".favoriteButton").each(function(){
+            $(this).text("Save movie");
+        })
+    }
 })
 
 // Event listener on each card and send that movie's ID number to be saved in the next function
