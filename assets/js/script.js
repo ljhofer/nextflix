@@ -1,6 +1,7 @@
-// Variablees for search area
+// Variables for search area
 var searchBtn = $("#search-button");
 var searchInputField = $("#input-text")[0];
+var errorText = $(".error-text");
 
 // Variables for results/popular movies area
 resultsDiv = $(".resultsDiv");
@@ -9,7 +10,6 @@ resultsDiv = $(".resultsDiv");
 var favoriteList = [];
 var currentSearch = "";
 var newFavoriteID = "";
-
 
 
 // Pulls a query of current popular movies from API
@@ -62,19 +62,27 @@ function getMovieAPI(currentSearch) {
     var apiKey = "76e9c110b6137a307950d97ef6abdeff"; 
     var requestURL = "https://api.themoviedb.org/3/search/movie?api_key=76e9c110b6137a307950d97ef6abdeff&query=" + currentSearch;
     
+    errorText.hide();
+
     fetch(requestURL)
         .then(function(response){
             if (response.ok) {
-                response.json().then(function(data) {     
-                    populateCards(data);    
+                response.json().then(function(data) {   
+                    
+                    if( !data.results.length ){
+                        errorText.text("There no records matching your search. Please try again.").show();
+                    } else {
+                        console.log(data);
+                        populateCards(data);
+                    }        
         })
-      // Alerts user if there is an error or if their input is invalid    
+            // Alerts user if there is an error or if their input is invalid    
             } else {
-                alert('Error: ' + response.statusText);
+               errorText.text("There was an error with your search. Please try again.").show();
             }
         })
         .catch(function(error){
-            alert("Unable to connect to Nextflix");
+            errorText.text("There was an error with your search. Please try again.").show();
         })
 }
 
@@ -128,19 +136,17 @@ searchBtn.click(function(event) {
     currentSearch = searchInputField.value;
     getMovieAPI(currentSearch);
     
-    // Sets buttons to default text and color
+    // Sets buttons to default text
     $(".favoriteButton").each(function(){
         $(this).text("Save movie");
-        // $(this).attr()
     })
 })
-
 
 // Event listener on each card and send that movie's ID number to be saved in the next function
 resultsDiv.click(function(event){
     newFavoriteID = $(event.target).closest(".text-center").siblings(".movie-id")[0].textContent;
     saveFavorite(newFavoriteID);
-    // When save to favorites button is clicked button text and color change
+    // When Save to Favorites button is clicked the text changes to Saved to Favorites
     $(event.target).text("Saved to favorites");
-    // $(event.target).attr("background-color", "red");
+    
 })
