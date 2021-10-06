@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/css/eric-meyer-reset.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 </head>
 <body>
   <!-- used bootstrap classes to organize and style the navbar inside the header -->
@@ -21,85 +24,75 @@
   </header>
   <!-- used bootstrap class container-fluid for the whole main section of the page so that styling with bootstrap would be possible -->
   <main class="container-fluid">
-      <!-- used bootstrap classes to center and justify the search bar and search button -->
-      <div class="justify-content-center row mt-5 mb-5 mx-auto">
-        <div>
-          <input id="input-text" type="text" class="form-control" placeholder="Search movies 🍿" />
-        </div>
-        <div>
-          <a href="#" class="btn btn-primary" id="search-button">Search</a>
-        </div>
-         <p class="error-text"></p>
+    <!-- used bootstrap classes to center and justify the search bar and search button -->
+    <div class="justify-content-center row mt-5 mb-5 mx-auto">
+      <div>
+        <input id="input-text" type="text" class="form-control" placeholder="Search movies 🍿" />
       </div>
-      <!-- used bootstap classes to center and justify the title text and the cards below -->
-      <div class="resultsDiv justify-content-between row col-12 mx-auto border-primary">
-
-        <div class="text-center col-12">
-          <p class="lead display-4">New & Upcoming Movies</p>
-        </div>
-        <!-- cards below are styled using bootstrap classes -->
-        <div class="card mt-4 mb-4" style="width: 18rem;">
-          <img src="" class="card-img-top"
-            alt="Movie poster for movie in position 1" />
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text release-year"></p>
-            <p class="card-text movie-desc"></p>
-            <p class="movie-id"></p>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Save to favorites</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mt-4 mb-4" style="width: 18rem;">
-          <img src="" class="card-img-top"
-            alt="Movie poster for movie in position 2" />
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text release-year"></p>
-            <p class="card-text movie-desc"></p>
-            <p class="movie-id"></p>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary favoriteButton"  id="favoriteButton-2">Save to favorites</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mt-4 mb-4" style="width: 18rem;">
-          <img src="" class="card-img-top"
-            alt="Movie poster for movie in position 3" />
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text release-year"></p>
-            <p class="card-text movie-desc"></p>
-            <p class="movie-id"></p>  
-            <div class="text-center">
-              <a href="#" class="btn btn-primary favoriteButton"  id="favoriteButton-3">Save to favorites</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card mt-4 mb-4" style="width: 18rem;">
-          <img src="" class="card-img-top"
-            alt="Movie poster for movie in position 4" />
-          <div class="card-body">
-            <h5 class="card-title"></h5>
-            <p class="card-text release-year"></p>
-            <p class="card-text movie-desc"></p>
-            <p class="movie-id"></p>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary favoriteButton"  id="favoriteButton-4">Save to favorites</a>
-            </div>
-          </div>
-        </div>
-
+      <div>
+        <a href="#" class="btn btn-primary" id="search-button">Search</a>
       </div>
-      <!-- footer is centered and adjusted on the page using bootstrap classes -->
-      <div id="footer-text" class="text-center col-12 mt-5 mb-5">
-        <h4>Powered by TMDB. LOGO-HERE.</h4>
+      <p class="error-text"></p>
+    </div>
+    <!-- used bootstap classes to center and justify the title text and the cards below -->
+    <div class="resultsDiv justify-content-between row col-12 mx-auto border-primary">
+      <div class="text-center col-12">
+        <p class="lead display-4">New & Upcoming Movies</p>
       </div>
-
+      <!-- cards below are styled using bootstrap classes -->
+      <div class="card mt-4 mb-4" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="Movie poster for movie in position 1" />
+        <div class="card-body">
+          <h5 class="card-title mt-3 mb-3"></h5>
+          <p class="card-text release-year mb-3"></p>
+          <p class="card-text movie-desc mb-3"></p>
+          <p class="movie-id"></p>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Save to favorites</a>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4 mb-4" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="Movie poster for movie in position 2" />
+        <div class="card-body">
+          <h5 class="card-title mt-3 mb-3"></h5>
+          <p class="card-text release-year mb-3"></p>
+          <p class="card-text movie-desc mb-3"></p>
+          <p class="movie-id"></p>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-2">Save to favorites</a>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4 mb-4" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="Movie poster for movie in position 3" />
+        <div class="card-body">
+          <h5 class="card-title mt-3 mb-3"></h5>
+          <p class="card-text release-year mb-3"></p>
+          <p class="card-text movie-desc mb-3"></p>
+          <p class="movie-id"></p>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-3">Save to favorites</a>
+          </div>
+        </div>
+      </div>
+      <div class="card mt-4 mb-4" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="Movie poster for movie in position 4" />
+        <div class="card-body">
+          <h5 class="card-title mt-3 mb-3"></h5>
+          <p class="card-text release-year mb-3"></p>
+          <p class="card-text movie-desc mb-3"></p>
+          <p class="movie-id"></p>
+          <div class="text-center">
+            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-4">Save to favorites</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- footer is centered and adjusted on the page using bootstrap classes -->
+    <div id="footer-text" class="text-center col-12 mt-5 mb-5">
+      <h4>Powered by TMDB. <img src="./assets/images/tmdb-image.png" alt="The Movie Database Logo."></h4>
+    </div>
   </main>
   <!-- below are the script links to the jQuery library, the anime.js library, and the two script files we created -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

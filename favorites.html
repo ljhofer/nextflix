@@ -5,99 +5,38 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nextflix: Your Favorites</title>
+  <!-- linked bootstrap, the eric meyer css reset style sheet -- unedited -- and the style.css file -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/css/eric-meyer-reset.css" />
-  <link rel= "stylesheet" href="./assets/css/favorites.css"/>
+  <link rel= "stylesheet" href="./assets/css/favorites.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
 </head>
 <body>
-
+    <!-- used bootstrap classes to organize and style the navbar inside the header -->
   <header>
-      <nav class="navbar justify-content-center py-2 py-lg-4">
-       
-        <h1 id="here-home"><a class="navbar display-1 text-decoration-none" href="./index.html">Nextflix</a></h1>
-        <h2><a class="navbar justify-content-end text-decoration-none" href="./index.html">Search for new favorties</a></h2>
-      </nav>
+    <nav class="navbar justify-content-center py-2 py-lg-4">
+      <h1 id="here-home"><a class="navbar display-1 text-decoration-none" href="./index.html">Nextflix</a></h1>
+      <h2><a class="navbar justify-content-end text-decoration-none" href="./index.html">Search for new favorties</a></h2>
+    </nav>
   </header>
-
-
+  <!-- the below container is dynamically filled with cards that are created from a template literal the script2.js file -->
   <main class="container-fluid">
-    <!-- <div class="justify-content-center row mt-5 mb-5 mx-auto">
-       </div> -->
-    
-       <div class="favoritesDiv justify-content-between row col-12 mx-auto border-primary" id="favoritesDiv">
-
-        <div class="text-center col-12">
-          <p class="lead display-4">Your Favorites</p>
-        </div>
-
-
-      <!-- <div class="card mt-4 mb-4" style="width: 18rem;">
-        <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-          alt="Fight Club movie poster used as a placeholder" />
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text release-year">2017</p>
-          <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <div class="text-center">
-            <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
-          </div>
-        </div>
+    <div class="favoritesDiv justify-content-between row col-12 mx-auto border-primary" id="favoritesDiv">
+      <div class="text-center col-12">
+        <p class="lead display-4">Your Favorites</p>
       </div>
-
-        <div class="card mt-4 mb-4" style="width: 18rem;">
-          <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-            alt="Fight Club movie poster used as a placeholder" />
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text release-year">2017</p>
-            <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
-              content.</p>
-            <div class="text-center">
-              <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
-            </div>
-          </div>
-        </div>
-
-          <div class="card mt-4 mb-4" style="width: 18rem;">
-            <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-              alt="Fight Club movie poster used as a placeholder" />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text release-year">2017</p>
-              <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <div class="text-center">
-                <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
-              </div>
-            </div>
-          </div>
-
-            <div class="card mt-4 mb-4" style="width: 18rem;">
-              <img src="./assets/images/fight-club-placeholder.jpg" class="card-img-top"
-                alt="Fight Club movie poster used as a placeholder" />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text release-year">2017</p>
-                <p class="card-text movie-desc">Some quick example text to build on the card title and make up the bulk of the card's
-                  content.</p>
-                <div class="text-center">
-                  <a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Remove Movie</a>
-                </div>
-              </div>
-            </div> -->
-          </div>
-        
-      
-            <div id="footer-text" class="text-center col-12 mt-5 mb-5">
-              <h4>Powered by TMDB. LOGO-HERE.</h4>
-            </div>
-          
-   </main>
-       
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </div>
+    <div id="footer-text" class="text-center col-12 mt-5 mb-5">
+      <h4>Powered by TMDB. <img src="./assets/images/tmdb-image.png" alt="The Movie Database Logo."></h4>
+    </div>
+  </main>
+  <!-- below are the script links to the jQuery library, the anime.js library, and the two script files we created --> 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/script2.js"></script>
   <script src="./assets/libraries/anime-master/lib/anime.min.js"></script>
+  <!-- below is the script element for the anime.js animation on the h1 tag -->
   <script>
     anime({
       targets: 'h1#here-home',
