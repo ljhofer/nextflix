@@ -15,7 +15,7 @@
 //	X	Have one single source of truth/string for all cards
 
 //	Selector
-var favoriteDiv = $(".container-fluid");
+var favoriteDiv = document.getElementById("favoritesDiv");
 //	This is broken 10/5/2021
 
 //Variables
@@ -27,24 +27,6 @@ var apiKey = "76e9c110b6137a307950d97ef6abdeff";
 var newFavoriteId2; //gotta update this
 //	Defining variable to build api url later
 var requestURL;
-/*
-//	Defining a var to use template literal
-var template = `
-	<div class="card mt-4 mb-4" style="width: 18rem;">
-    	<img src=${data.results[index]} class="card-img-top"
-        	alt="placeholder alt" />
-    	<div class="card-body">
-    		<h5 class="card-title">${data.results[index].title}</h5>
-    		<p class="card-text release-year">${data.results[index].release_date}</p>
-        	<p class="card-text movie-desc">${data.results[index].overview}</p>
-            <p class="movie-id"></p>
-            <div class="text-center">
-            	//<a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Save movie</a>	change this button to a remove movie if we have time.
-            </div>
-        </div>
-    </div>
-`;
-*/
 
 //	Function
 
@@ -78,14 +60,14 @@ function start() {
 								template = `
 									<div class="card mt-4 mb-4" style="width: 18rem;">
 										<img src=${imgForTemp} class="card-img-top"
-											alt="placeholder alt" />
+											alt="Movie Poster" />
 										<div class="card-body">
 											<h5 class="card-title">${data.title}</h5>
 											<p class="card-text release-year">${data.release_date}</p>
 											<p class="card-text movie-desc">${data.overview}</p>
 											<p class="movie-id"></p>
 											<div class="text-center">
-												//<a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Save movie</a>	change this button to a remove movie if we have time.
+												<a href="#" class="btn btn-primary favoriteButton" id="favoriteButton-1">Save movie</a>
 											</div>
 										</div>
 									</div>
