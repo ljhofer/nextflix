@@ -13,7 +13,12 @@ nav a {
   font-size: small;
   color: whitesmoke;
   font-weight: bold;
-  text-decoration: none;
+}
+
+.error-text {
+  font-size: small;
+  color: whitesmoke;
+  font-weight: bold;
 }
 
 .card-header {
