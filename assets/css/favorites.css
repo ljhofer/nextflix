@@ -38,3 +38,7 @@ nav a {
   text-align: center;
   font-weight: bolder;
 }
+
+.movie-id {
+  display: none;
+}
