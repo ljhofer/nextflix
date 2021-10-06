@@ -5,21 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nextflix: Your Next Favorite Movie</title>
+  <!-- linked bootstrap, the eric meyer css reset style sheet -- unedited -- and the style.css file -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <link rel="stylesheet" href="./assets/css/eric-meyer-reset.css" />
   <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-  <!-- style: title needs to be over to the left a little, link to favs needs to be bigger and moved a little too -->
+  <!-- used bootstrap classes to organize and style the navbar inside the header -->
   <header>
-    <nav id="here" class="navbar justify-content-center py-2 py-lg-4">
-      <h1 class="navbar display-1" href="#">Nextflix</h1>
-      <h2 class="navbar justify-content-end"><a href="./favorites.html">See your favorites</a></h2>
+    <nav class="navbar justify-content-center py-2 py-lg-4">
+      <!-- id here is targeted by the anime.js script to rotate the title when the page is loaded or refreshed -->
+      <h1 id="here-home"><a class="navbar display-1 text-decoration-none" href="./index.html">Nextflix</a></h1>
+      <h2><a class="navbar justify-content-end text-decoration-none" href="./favorites.html">See your favorites</a></h2>
     </nav>
   </header>
-
+  <!-- used bootstrap class container-fluid for the whole main section of the page so that styling with bootstrap would be possible -->
   <main class="container-fluid">
-      <!-- style: change size of search box and seatch button -->
+      <!-- used bootstrap classes to center and justify the search bar and search button -->
       <div class="justify-content-center row mt-5 mb-5 mx-auto">
         <div>
           <input id="input-text" type="text" class="form-control" placeholder="Search movies 🍿" />
@@ -28,13 +30,13 @@
           <a href="#" class="btn btn-primary" id="search-button">Search</a>
         </div>
       </div>
-
+      <!-- used bootstap classes to center and justify the title text and the cards below -->
       <div class="resultsDiv justify-content-between row col-12 mx-auto border-primary">
 
         <div class="text-center col-12">
           <p class="lead display-4">New & Upcoming Movies</p>
         </div>
-        <!-- style: change color and size of border -->
+        <!-- cards below are styled using bootstrap classes -->
         <div class="card mt-4 mb-4" style="width: 18rem;">
           <img src="" class="card-img-top"
             alt="Movie poster for movie in position 1" />
@@ -92,24 +94,22 @@
         </div>
 
       </div>
-
+      <!-- footer is centered and adjusted on the page using bootstrap classes -->
       <div id="footer-text" class="text-center col-12 mt-5 mb-5">
         <h4>Powered by TMDB. LOGO-HERE.</h4>
       </div>
 
   </main>
-
+  <!-- below are the script links to the jQuery library, the anime.js library, and the two script files we created -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="./assets/js/script.js"></script>
-  <!-- <script src="./assets/js/script2.js"></script> -->
   <script src="./assets/libraries/anime-master/lib/anime.min.js"></script>
+  <!-- below is the script element for the anime.js animation on the h1 tag -->
   <script>
     anime({
-      targets: 'nav#here',
-      translateX: 250,
+      targets: 'h1#here-home',
       rotate: '1turn',
-      color: '#f5f5f5',
-      backgroundColor: '#333333',
+      easing: 'easeInOutQuad',
       duration: 1200
     });
   </script>
