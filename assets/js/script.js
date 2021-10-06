@@ -1,4 +1,4 @@
-// Variablees for search area
+// Variables for search area
 var searchBtn = $("#search-button");
 var searchInputField = $("#input-text")[0];
 var errorText = $(".error-text");
@@ -10,7 +10,6 @@ resultsDiv = $(".resultsDiv");
 var favoriteList = [];
 var currentSearch = "";
 var newFavoriteID = "";
-
 
 
 // Pulls a query of current popular movies from API
@@ -77,7 +76,7 @@ function getMovieAPI(currentSearch) {
                         populateCards(data);
                     }        
         })
-      // Alerts user if there is an error or if their input is invalid    
+            // Alerts user if there is an error or if their input is invalid    
             } else {
                errorText.text("There was an error with your search. Please try again.").show();
             }
@@ -137,19 +136,17 @@ searchBtn.click(function(event) {
     currentSearch = searchInputField.value;
     getMovieAPI(currentSearch);
     
-    // Sets buttons to default text and color
+    // Sets buttons to default text
     $(".favoriteButton").each(function(){
         $(this).text("Save movie");
-        // $(this).attr()
     })
 })
-
 
 // Event listener on each card and send that movie's ID number to be saved in the next function
 resultsDiv.click(function(event){
     newFavoriteID = $(event.target).closest(".text-center").siblings(".movie-id")[0].textContent;
     saveFavorite(newFavoriteID);
-    // When save to favorites button is clicked button text and color change
+    // When Save to Favorites button is clicked the text changes to Saved to Favorites
     $(event.target).text("Saved to favorites");
-    // $(event.target).attr("background-color", "red");
+    
 })
