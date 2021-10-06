@@ -21,7 +21,6 @@ function startPage() {
         .then(function(response){
             if (response.ok) {
                  response.json().then(function(data) {
-                    console.log(data);  
                     populatePopular(data);        
             // TODO: Add in other commands to do with our data
             
@@ -55,6 +54,7 @@ function populatePopular(data) {
 
         cardCounter++;
     })
+}
 
 // Calls the API to fetch data based on user search 
     // TODO: Add function to repopulate cards with API results
@@ -101,14 +101,10 @@ function populateCards(data) {
 }
 
 // Checks if new favorite movie id is already in local storage and if not pushes it there	
-function saveFavorite() {
-        
-    // Checks if current id number is in local storage
-         // If no -- function for pushing to local storage
-        // TODO: check variable names against real file
-        
+function saveFavorite(newFavoriteID) {
+    
     if (localStorage.getItem("favoriteList") !== null && favoriteList.length > 0) {
-            favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
+        favoriteList = JSON.parse(localStorage.getItem("favoriteList"));
     }
         
     if (!favoriteList.includes(newFavoriteID)) {
@@ -130,13 +126,20 @@ searchBtn.click(function(event) {
     event.preventDefault();
     currentSearch = searchInputField.value;
     getMovieAPI(currentSearch);
+    
+    // Sets buttons to default text and color
+    $(".favoriteButton").each(function(){
+        $(this).text("Save movie");
+        // $(this).attr()
+    })
 })
 
 
-// Event listener on each card or on card div for click to add to favorites
+// Event listener on each card and send that movie's ID number to be saved in the next function
 resultsDiv.click(function(event){
-    // TODO: make sure this event target works and figure out if it need to be ID or title
-    newFavoriteID = event.target;
-    console.log($(event.target).closest(".text-center").siblings(".movie-id")[0].textContent);
-    // saveFavorite(newFavoriteID);
-})}
+    newFavoriteID = $(event.target).closest(".text-center").siblings(".movie-id")[0].textContent;
+    saveFavorite(newFavoriteID);
+    // When save to favorites button is clicked button text and color change
+    $(event.target).text("Saved to favorites");
+    // $(event.target).attr("background-color", "red");
+})
