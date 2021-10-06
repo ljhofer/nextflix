@@ -1,6 +1,7 @@
-
+/* most of the styling was handled in the html using bootstrap */
 body {
   background-color: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 h1 {
@@ -41,4 +42,8 @@ nav a {
 
 .movie-id {
   display: none;
+}
+
+#footer-text {
+  color: whitesmoke;
 }

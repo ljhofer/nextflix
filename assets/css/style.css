@@ -1,5 +1,7 @@
+/* most of the styling was handled in the html using bootstrap */
 body {
   background-color: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 nav {
@@ -23,6 +25,11 @@ nav a {
 
 .card-header {
   color: whitesmoke;
+}
+
+.card-title {
+  font-size: large;
+  font-weight: bold;
 }
 
 .resultsDiv {
