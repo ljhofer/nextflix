@@ -1,5 +1,5 @@
 # nextflix
-Boot Camp Group Project # 1
+
 
 ## Project Description
 - User is able to see a short list of current movies that come from The Movie Database (TMDB) API.
